@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <main>
+    <p id="main"></p>
+  </main>
+
+  <script>
+
+    //MAKE YOUR BROWSER SING 99 BOTTLES OF BEER!
+
+    // =================== YOUR WORK HERE ===================
+    var mainEl = document.getElementById('main');
+
+    var bottleNum = 99;
+    var beersEmoji = "🍻";
+    var beerEmoji = "🍺";
+
+    var bottleInterval = setInterval(function repeat() {
+
+      var bottlesMessage = `${beersEmoji} ${bottleNum} ${beersEmoji} bottles of beer on the wall, ${beersEmoji} ${bottleNum} ${beersEmoji} bottles of beer.`
+      var decrementMessage = `Take one down, pass it around, ${beersEmoji} ${bottleNum} ${beersEmoji} bottles of beer on the wall!`
+      var finalMessage = `${beerEmoji} ${bottleNum} ${beerEmoji} bottle of beer on the wall, ${beerEmoji} ${bottleNum} ${beerEmoji} bottle of beer. Take one down, pass it around, no more bottles of beer on the wall!`
+          
+
+      if (bottleNum > 1) {
+        setTimeout(function() {
+        console.log(bottlesMessage);
+        mainEl.innerHTML = `${bottlesMessage} ${decrementMessage}`;
+        console.log(decrementMessage);
+        clearInterval(bottleInterval);
+        bottleNum--;
+        repeat();
+
+      }, 1000)} else {
+        console.log(finalMessage);
+        mainEl.innerHTML = finalMessage;
+        return
+      }
+    }, 1000);
+  
+  
+
+
+
+    // =================== END WORK AREA ===================
+  
+  </script>
+</body>
+</html>
